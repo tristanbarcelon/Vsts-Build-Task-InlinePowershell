@@ -22,7 +22,11 @@
       "label": "Script to run",
       "defaultValue": "Write-Output 'Hello world'",
       "required": true,
-      "helpMarkDown": "Write all your thoughts in powershell in this textbox"
+      "helpMarkDown": "Write all your thoughts in powershell in this textbox",
+      "properties": {
+        "resizable": "true",
+        "rows" : "10"
+      }
     }
   ],
   "instanceNameFormat": "InlinePowershell",
