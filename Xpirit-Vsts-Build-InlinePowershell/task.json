@@ -10,7 +10,7 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 1
+    "Patch": 4
   },
   "demands": [ ],
   "minimumAgentVersion": "1.90.0",
@@ -24,8 +24,8 @@
       "required": true,
       "helpMarkDown": "Write all your thoughts in powershell in this textbox",
       "properties": {
-        "resizable": "true",
-        "rows" : "10"
+        "resizable": true,
+        "rows" : "15"
       }
     }
   ],
