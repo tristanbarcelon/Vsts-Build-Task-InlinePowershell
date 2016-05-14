@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "Xpirit-Vsts-Build-InlinePowershell", "Xpirit-Vsts-Build-InlinePowershell\Xpirit-Vsts-Build-InlinePowershell.pssproj", "{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}"
 EndProject
 Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "Xpirit-Vsts-Build-InlineAzurePowershell", "Xpirit-Vsts-Build-InlineAzurePowershell\Xpirit-Vsts-Build-InlineAzurePowershell.pssproj", "{6CAFC0C6-A428-4D30-A9F9-300E829FEA51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5AC6377C-B5F1-45D3-B189-6270DBE83D70}"
+	ProjectSection(SolutionItems) = preProject
+		extension-manifest.json = extension-manifest.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
