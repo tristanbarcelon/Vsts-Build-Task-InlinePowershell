@@ -1,16 +1,15 @@
+Param(
+    [String] [Parameter(Mandatory = $true)] $ConnectedServiceNameSelector,    
+    [String] $ConnectedServiceName,
+    [String] $ConnectedServiceNameARM, 
+    [string] $Script,
+	[string] $ScriptArguments
+)
+
 Trace-VstsEnteringInvocation $MyInvocation
-
-# Get inputs.
-$script = Get-VstsInput -Name Script -Require
-$scriptArguments = Get-VstsInput -Name ScriptArguments
-
 
 $scriptPath =  [System.IO.Path]::GetTempFileName().Split(".")[0]+".ps1"
 $script >> $scriptPath
-
-if ($scriptArguments -match '[\r\n]') {
-    throw (Get-VstsLocString -Key InvalidScriptArguments0 -ArgumentList $scriptArguments)
-}
 
 # Initialize Azure.
 Import-Module $PSScriptRoot\ps_modules\VstsAzureHelpers_

@@ -3,14 +3,14 @@
   "name": "InlineAzurePowershell",
   "friendlyName": "Run Inline Azure Powershell",
   "description": "Run a PowerShell from a textbox within an Azure environment",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More Information](https://https://pgroene.wordpress.com/2016/05/20/using-the-inline-powershell-vsts-task)",
   "category": "Utility",
   "visibility": [ "Build", "Release" ],
   "author": "Peter Groenewegen - Xpirit",
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 5
+    "Patch": 14
   },
   "demands": [ "azureps" ],
   "minimumAgentVersion": "1.95.0",
@@ -49,21 +49,32 @@
       "name": "Script",
       "type": "multiLine",
       "label": "Script to run",
-      "defaultValue": "Write-Output 'Hello world'",
+      "defaultValue": "Write-Output 'Hello world",
       "required": true,
       "helpMarkDown": "Write all your thoughts in powershell in this textbox to run it in Azure Powershell",
       "properties": {
         "resizable": true,
         "rows": "15"
       }
+    },
+    {
+      "name": "ScriptArguments",
+      "type": "string",
+      "label": "Arguments",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Arguments passed to the PowerShell script.  Either ordinal parameters or named parameters"
     }
   ],
-  "instanceNameFormat": "InlineAzurePowershell",
+  "instanceNameFormat": "Inline Azure Powershell",
   "execution": {
+    "PowerShell3": {
+      "target": "$(currentDirectory)\\InlineAzurePowershell.ps1"
+    },
     "AzurePowerShell": {
-      "target": "$(currentDirectory)\\InlineAzurePowershell.ps1",
+      "target": "$(currentDirectory)\\InlineAzurePowershell-Legacy.ps1",
       "argumentFormat": "",
-      "workingDirectory": "$(Build.SourcesDirectory)"
+      "workingDirectory": "$(currentDirectory)"
     }
   }
 }

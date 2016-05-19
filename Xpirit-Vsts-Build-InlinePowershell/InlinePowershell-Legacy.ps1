@@ -1,8 +1,9 @@
-Trace-VstsEnteringInvocation $MyInvocation
+Param(
+    [string] $Script ,
+	[string] $ScriptArguments
+)
 
-# Get inputs.
-$script = Get-VstsInput -Name Script -Require
-$scriptArguments = Get-VstsInput -Name ScriptArguments
+Trace-VstsEnteringInvocation $MyInvocation
 
 
 $scriptPath =  [System.IO.Path]::GetTempFileName().Split(".")[0]+".ps1"
@@ -12,10 +13,6 @@ if ($scriptArguments -match '[\r\n]') {
     throw (Get-VstsLocString -Key InvalidScriptArguments0 -ArgumentList $scriptArguments)
 }
 
-# Initialize Azure.
-Import-Module $PSScriptRoot\ps_modules\VstsAzureHelpers_
-Initialize-Azure
-
 # Trace the expression as it will be invoked.
 $scriptCommand = "& '$($scriptPath.Replace("'", "''"))' $scriptArguments"
 Remove-Variable -Name script
@@ -23,12 +20,10 @@ Remove-Variable -Name scriptPath
 Remove-Variable -Name scriptArguments
 
 # Remove all commands imported from VstsTaskSdk, other than Out-Default.
-# Remove all commands imported from VstsAzureHelpers_.
 Get-ChildItem -LiteralPath function: |
     Where-Object {
         ($_.ModuleName -eq 'VstsTaskSdk' -and $_.Name -ne 'Out-Default') -or
-        ($_.Name -eq 'Invoke-VstsTaskScript') -or
-        ($_.ModuleName -eq 'VstsAzureHelpers_' )
+        ($_.Name -eq 'Invoke-VstsTaskScript') 
     } |
     Remove-Item
 
@@ -61,3 +56,4 @@ $global:ErrorActionPreference = 'Continue'
             "##vso[task.complete result=Failed]"
         }
     }
+ 

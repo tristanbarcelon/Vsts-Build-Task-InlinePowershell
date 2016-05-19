@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "PeterGroenewegen-Xpirit-Vsts-Build-InlinePowershell",
   "name": "Run Inline Powershell and Azure Powershell",
-  "version": "1.0.4",
+  "version": "1.0.16",
   "publisher": "petergroenewegen",
   "public": true,
   "targets": [
@@ -39,7 +39,7 @@
   },
   "links": {
     "getstarted": {
-      "uri": "https://github.com/XpiritBV/Vsts-Build-Task-InlinePowershell/wiki"
+      "uri": "https://pgroene.wordpress.com/2016/05/20/using-the-inline-powershell-vsts-task"
     },
     "support": {
       "uri": "https://github.com/XpiritBV/Vsts-Build-Task-InlinePowershell/wiki"

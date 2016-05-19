@@ -3,36 +3,47 @@
   "name": "InlinePowershell",
   "friendlyName": "Run Inline Powershell",
   "description": "Run the Powershell from a textbox",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More Information](https://pgroene.wordpress.com/2016/05/20/using-the-inline-powershell-vsts-task)",
   "category": "Utility",
-  "visibility": [ "Build","Release" ],
+  "visibility": [ "Build", "Release" ],
   "author": "Peter Groenewegen - Xpirit",
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 4
+    "Patch": 14
   },
   "demands": [ ],
-  "minimumAgentVersion": "1.90.0",
+  "minimumAgentVersion": "1.95.0",
 
   "inputs": [
     {
       "name": "Script",
       "type": "multiLine",
       "label": "Script to run",
-      "defaultValue": "Write-Output 'Hello world'",
+      "defaultValue": "Write-Output 'Hello world",
       "required": true,
       "helpMarkDown": "Write all your thoughts in powershell in this textbox",
       "properties": {
         "resizable": true,
-        "rows" : "15"
+        "rows": "15"
       }
+    },
+    {
+      "name": "ScriptArguments",
+      "type": "string",
+      "label": "Arguments",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Arguments passed to the PowerShell script.  Either ordinal parameters or named parameters"
     }
   ],
-  "instanceNameFormat": "InlinePowershell",
+  "instanceNameFormat": "Inline Powershell",
   "execution": {
+    "PowerShell3": {
+      "target": "$(currentDirectory)\\InlinePowershell.ps1"
+    },
     "PowerShell": {
-      "target": "$(currentDirectory)\\InlinePowershell.ps1",
+      "target": "$(currentDirectory)\\InlinePowershell-Legacy.ps1",
       "argumentFormat": "",
       "workingDirectory": "$(Build.SourcesDirectory)"
     }
