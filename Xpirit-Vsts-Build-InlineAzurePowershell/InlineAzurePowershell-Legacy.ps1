@@ -6,7 +6,6 @@ Param(
 	[string] $ScriptArguments
 )
 
-Trace-VstsEnteringInvocation $MyInvocation
 
 $scriptPath =  [System.IO.Path]::GetTempFileName().Split(".")[0]+".ps1"
 $script >> $scriptPath
