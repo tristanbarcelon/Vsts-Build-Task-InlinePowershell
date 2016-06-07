@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5AC6377C-B5F1-45D3-B189-6270DBE83D70}"
 	ProjectSection(SolutionItems) = preProject
 		extension-manifest.json = extension-manifest.json
+		Xpirit.Vsts.Build.InlinePowershell.Extension\readme.md = Xpirit.Vsts.Build.InlinePowershell.Extension\readme.md
 	EndProjectSection
 EndProject
 Global

@@ -4,5 +4,6 @@ Build extension that enable you to run Powershell entered in a textbox. You can 
 
 # Documentation
 
-Please check the [Wiki](https://github.com/XpiritBV/Vsts-Build-Task-InlinePowershell/wiki).
+Please check the [get started](https://pgroene.wordpress.com/2016/05/20/using-the-inline-powershell-vsts-task/).
+
 
