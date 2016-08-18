@@ -6,12 +6,87 @@ Param(
 	[string] $ScriptArguments
 )
 
-
-$scriptPath =  [System.IO.Path]::GetTempFileName().Split(".")[0]+".ps1"
+$scriptPath =  [System.IO.Path]::GetTempFileName().Replace(".tmp",".ps1")
 $script >> $scriptPath
+
+if (-not (get-command 'Import-VstsLocStrings'  -ErrorAction SilentlyContinue))
+{
+    $parametershash = $PSBoundParameters
+    
+    function Import-VstsLocStrings{
+        Write-Output 'Import-VstsLocStrings'
+    }
+
+    function Trace-VstsEnteringInvocation{
+        Write-Output 'Entering VstsEnteringInvocation'
+    }
+
+
+    function Trace-VstsLeavingInvocation{
+        Write-Output 'Leaving VstsLeavingInvocation'
+    }
+
+
+    function Get-VstsInput{
+        param(
+        [Parameter(Mandatory = $true)]
+        [string]$Name,
+        [Parameter(ParameterSetName = 'Default')]
+        $Default,
+        [Parameter(ParameterSetName = 'Require')]
+        [switch]$Require,
+        [switch]$AsBool,
+        [switch]$AsInt)
+        
+        $result = $parametershash[$Name]
+
+         # Write error if required.
+        if ($Require) {
+            Write-Error " Required $Name"
+            return
+        }
+
+        # Fallback to the default if provided.
+        if ($PSCmdlet.ParameterSetName -eq 'Default') {
+            $result = $Default
+            Write-Verbose " Defaulted to: '$result'"
+        } else {
+            $result = ''
+        }
+
+        # Convert to bool if specified.
+        if ($AsBool) {
+            if ($result -isnot [bool]) {
+                $result = "$result" -in '1', 'true'
+                Write-Verbose " Converted to bool: $result"
+            }
+
+            return $result
+        }
+
+        # Convert to int if specified.
+        if ($AsInt) {
+            if ($result -isnot [int]) {
+                try {
+                    $result = [int]"$result"
+                } catch {
+                    $result = 0
+                }
+
+                Write-Verbose " Converted to int: $result"
+            }
+
+        }
+
+        return $result
+    }
+}
 
 # Initialize Azure.
 Import-Module $PSScriptRoot\ps_modules\VstsAzureHelpers_
+
+
+
 Initialize-Azure
 
 # Trace the expression as it will be invoked.

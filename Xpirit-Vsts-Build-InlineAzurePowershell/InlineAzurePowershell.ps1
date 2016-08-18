@@ -5,7 +5,7 @@ $script = Get-VstsInput -Name Script -Require
 $scriptArguments = Get-VstsInput -Name ScriptArguments
 
 
-$scriptPath =  [System.IO.Path]::GetTempFileName().Split(".")[0]+".ps1"
+$scriptPath =  [System.IO.Path]::GetTempFileName().Replace(".tmp",".ps1")
 $script >> $scriptPath
 
 if ($scriptArguments -match '[\r\n]') {
