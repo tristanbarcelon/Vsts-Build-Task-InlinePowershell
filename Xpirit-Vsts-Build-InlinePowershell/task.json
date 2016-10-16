@@ -45,7 +45,7 @@
     "PowerShell": {
       "target": "$(currentDirectory)\\InlinePowershell-Legacy.ps1",
       "argumentFormat": "",
-      "workingDirectory": "$(Build.SourcesDirectory)"
+      "workingDirectory": "$(currentDirectory)"
     }
   }
 }
