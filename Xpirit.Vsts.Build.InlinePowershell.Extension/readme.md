@@ -28,7 +28,31 @@ This will give you the following output:
 
 Variables marked a secret will be shown as ********. This to prevent them to be reviled to everybody with access to the logs.
 
-[See my blog for more tasks](https://pgroene.wordpress.com/)
+[See my blog](https://pgroene.wordpress.com/)
+
 [Sources](https://github.com/XpiritBV/Vsts-Build-Task-InlinePowershell)
 
+## Tips and Tricks
+
+[Use VSTS variables](https://pgroene.wordpress.com/2017/12/07/use-vsts-variables-inline-powershell)
+
+[Let your task fail](https://pgroene.wordpress.com/2017/12/08/let-your-inline-powershell-task-fail)
+
+[Set progress](https://pgroene.wordpress.com/2017/12/11/4256)
+
+[Change buildnumber](https://pgroene.wordpress.com/2017/12/12/set-buildnumber-from-inline-powershell)
+
+[VSTS Powershell command overview](https://pgroene.wordpress.com/2017/12/13/vsts-powershell-commands) 
+
+[Call a WebHook](https://pgroene.wordpress.com/2017/12/14/call-a-webhook-from-inline-powershell)
+
+[Download a file](https://pgroene.wordpress.com/2017/12/15/download-a-file-from-inline-powershell)
+
+[Install a Powershell Module](https://pgroene.wordpress.com/2017/12/18/install-a-powershell-module-inline-powershell-vsts)
+
+[Navigate VSTS as filesystem](https://pgroene.wordpress.com/2017/12/19/navigate-vsts-project-as-filesystem-from-inline-powershell)
+
+[Make VSTS API Rest calls](https://pgroene.wordpress.com/2017/12/20/vsts-rest-api-from-inline-powershell)
+
+[Script example: Act on failed build ](https://pgroene.wordpress.com/2017/12/21/let-your-build-work-for-you-shorten-the-feedback-loop)
 
